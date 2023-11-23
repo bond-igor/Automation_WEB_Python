@@ -1,0 +1,4 @@
+url_post: "https://test-stand.gb.ru/gateway/login"
+url_get: "https://test-stand.gb.ru/api/posts"
+login: "kitty89"
+password: "61d96a3985"
