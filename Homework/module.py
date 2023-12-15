@@ -3,7 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-# from webdriver.chrome import ChromeDriverManager
+#from webdriver.chrome import ChromeDriverManager
 # from webdriver.firefox import GeckoDriverManager
 
 with open("./testdata.yaml") as f:
@@ -41,3 +41,4 @@ class Site:
 
 	def close(self):
 		self.driver.close()
+

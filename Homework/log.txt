@@ -1,0 +1,6 @@
+2023-12-15 21:28:27 - INFO - log: 11 - ====== WebDriver manager ======
+2023-12-15 21:28:27 - INFO - log: 11 - Get LATEST chromedriver version for google-chrome
+2023-12-15 21:28:28 - INFO - log: 11 - Get LATEST chromedriver version for google-chrome
+2023-12-15 21:28:28 - INFO - log: 11 - Driver [C:\Users\bonda\.wdm\drivers\chromedriver\win64\120.0.6099.71\chromedriver-win32/chromedriver.exe] found in cache
+2023-12-15 21:28:29 - INFO - test_step_4: 52 - Тест 4 запущен
+2023-12-15 21:28:34 - INFO - enter_login: 28 - Ввод mick в элемент //*[@id="login"]/div[1]/label/input
