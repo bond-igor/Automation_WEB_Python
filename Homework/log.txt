@@ -1,6 +1,32 @@
-2023-12-15 21:28:27 - INFO - log: 11 - ====== WebDriver manager ======
-2023-12-15 21:28:27 - INFO - log: 11 - Get LATEST chromedriver version for google-chrome
-2023-12-15 21:28:28 - INFO - log: 11 - Get LATEST chromedriver version for google-chrome
-2023-12-15 21:28:28 - INFO - log: 11 - Driver [C:\Users\bonda\.wdm\drivers\chromedriver\win64\120.0.6099.71\chromedriver-win32/chromedriver.exe] found in cache
-2023-12-15 21:28:29 - INFO - test_step_4: 52 - Тест 4 запущен
-2023-12-15 21:28:34 - INFO - enter_login: 28 - Ввод mick в элемент //*[@id="login"]/div[1]/label/input
+2023-12-16 19:05:18 - INFO - log: 11 - ====== WebDriver manager ======
+2023-12-16 19:05:19 - INFO - log: 11 - Get LATEST chromedriver version for google-chrome
+2023-12-16 19:05:19 - INFO - log: 11 - Get LATEST chromedriver version for google-chrome
+2023-12-16 19:05:19 - INFO - log: 11 - Driver [C:\Users\bonda\.wdm\drivers\chromedriver\win64\120.0.6099.71\chromedriver-win32/chromedriver.exe] found in cache
+2023-12-16 19:05:21 - INFO - test_step_1: 10 - Тест 1 запущен
+2023-12-16 19:05:22 - INFO - enter_login: 28 - поиск элемента '//*[@id="login"]/div[1]/label/input'
+2023-12-16 19:05:22 - INFO - enter_login: 30 - Очистка поля //*[@id="login"]/div[1]/label/input
+2023-12-16 19:05:22 - INFO - enter_login: 32 - Ввод test в элемент //*[@id="login"]/div[1]/label/input
+2023-12-16 19:05:22 - INFO - enter_pass: 36 - Ввод test в элемент //*[@id="login"]/div[2]/label/input
+2023-12-16 19:05:22 - INFO - click_login_button: 42 - Нажимает кнопку логин
+2023-12-16 19:05:23 - INFO - get_error_text: 48 - Мы нашли текст 401 в ошибке //*[@id="app"]/main/div/div/div[2]/h2
+2023-12-16 19:05:23 - INFO - test_step2: 19 - Тест 2 запущен
+2023-12-16 19:05:23 - INFO - enter_login: 28 - поиск элемента '//*[@id="login"]/div[1]/label/input'
+2023-12-16 19:05:23 - INFO - enter_login: 30 - Очистка поля //*[@id="login"]/div[1]/label/input
+2023-12-16 19:05:23 - INFO - enter_login: 32 - Ввод mick в элемент //*[@id="login"]/div[1]/label/input
+2023-12-16 19:05:23 - INFO - enter_pass: 36 - Ввод 2ea7d215f8 в элемент //*[@id="login"]/div[2]/label/input
+2023-12-16 19:05:23 - INFO - click_login_button: 42 - Нажимает кнопку логин
+2023-12-16 19:05:25 - INFO - get_text_blog: 54 - We find text Blog in error field //*[@id="app"]/main/div/div[1]/h1
+2023-12-16 19:05:25 - INFO - test_step3: 31 - Тест 3 запущен
+2023-12-16 19:05:25 - INFO - enter_login: 28 - поиск элемента '//*[@id="login"]/div[1]/label/input'
+2023-12-16 19:05:35 - INFO - click_nwe_post_button: 58 - Click new post button
+2023-12-16 19:05:35 - INFO - enter_title_post: 62 - Send new title to element //*[@id="create-item"]/div/div/div[1]/div/label/input
+2023-12-16 19:05:35 - INFO - enter_content_post: 68 - Send content to element //*[@id="create-item"]/div/div/div[3]/div/label/span/textarea
+2023-12-16 19:05:35 - INFO - click_create_nwe_post_button: 74 - Click new post button
+2023-12-16 19:05:38 - INFO - post: 80 - We find text new title in error field //*[@id="app"]/main/div/div[1]/h1
+2023-12-16 19:05:38 - INFO - test_step_4: 52 - Тест 4 запущен
+2023-12-16 19:05:39 - INFO - enter_login: 28 - поиск элемента '//*[@id="login"]/div[1]/label/input'
+2023-12-16 19:05:49 - INFO - click_contact: 90 - Click contact button
+2023-12-16 19:05:51 - INFO - contact_us_name: 94 - Send "ivan" to element //*[@id="contact"]/div[1]/label/input
+2023-12-16 19:05:51 - INFO - contact_us_email: 100 - Send "test@mail.ru" to element //*[@id="contact"]/div[2]/label/input
+2023-12-16 19:05:51 - INFO - contact_us_content: 106 - Send "Hello World" to element //*[@id="contact"]/div[3]/label/span/textarea
+2023-12-16 19:05:51 - INFO - click_contact_us: 112 - Click create contact button

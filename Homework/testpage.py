@@ -1,4 +1,4 @@
-from BasePage import BasePage
+from BaseApp import BasePage
 from selenium.webdriver.common.by import By
 import logging
 
@@ -25,14 +25,16 @@ class TestSearchLocators:
 class OperationsHelper(BasePage):
 
 	def enter_login(self, word):
-		logging.info(f"Ввод {word} в элемент {TestSearchLocators.LOCATOR_LOGIN_FIELD[1]}")
+		logging.info(f"поиск элемента '{TestSearchLocators.LOCATOR_LOGIN_FIELD[1]}'")
 		login_field = self.find_element(TestSearchLocators.LOCATOR_LOGIN_FIELD)
+		logging.info(f"Очистка поля {TestSearchLocators.LOCATOR_LOGIN_FIELD[1]}")
 		login_field.clear()
+		logging.info(f"Ввод {word} в элемент {TestSearchLocators.LOCATOR_LOGIN_FIELD[1]}")
 		login_field.send_keys(word)
 
 	def enter_pass(self, word):
 		logging.info(f"Ввод {word} в элемент {TestSearchLocators.LOCATOR_PASS_FIELD[1]}")
-		pass_field = self.find_element((TestSearchLocators.LOCATOR_PASS_FIELD))
+		pass_field = self.find_element(TestSearchLocators.LOCATOR_PASS_FIELD)
 		pass_field.clear()
 		pass_field.send_keys(word)
 

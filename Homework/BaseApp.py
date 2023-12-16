@@ -9,7 +9,7 @@ class BasePage:
 		self.base_url = url
 
 	def find_element(self, locator, time=10):
-		return WebDriverWait(self.driver, time).until(EC.presencce_of_element_located(locator),
+		return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
 		                                              message=f"Элемент с локатором {locator} не найден")
 
 
