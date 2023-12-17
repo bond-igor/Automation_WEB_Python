@@ -1,6 +1,7 @@
 import yaml, time
-from testpage import OperationsHelper
+from testpage import OperationsHelper, check_id
 import logging
+
 
 with open("testdata.yaml") as f:
 	testdata = yaml.safe_load(f)
@@ -38,15 +39,15 @@ def test_step3(browser):
 	except:
 		pass
 	# создания поста
-	testpage.click_nwe_post_button()
+	testpage.click_new_post_btn()
 	testpage.enter_title_post("new title")
 	testpage.enter_content_post("content")
-	testpage.click_create_nwe_post_button()
+	testpage.click_save_btn()
 
 	time.sleep(3)
 
 	# Проверка наличия названия поста на странице
-	assert testpage.post() == "new title"
+	assert testpage.get_res_create_text() == "new title"
 
 def test_step_4(browser):
 	logging.info("Тест 4 запущен")
@@ -59,11 +60,17 @@ def test_step_4(browser):
 		testpage.click_login_button()
 	except:
 		pass
+	testpage.contact_contact_link()
+	time.sleep(testdata['sleep_time'])
+	testpage.enter_contact_name("ivan")
+	testpage.enter_contact_mail("test@mail.ru")
+	testpage.enter_contact_content("Hello World")
+	time.sleep(testdata['sleep_time'])
 	testpage.click_contact()
 	time.sleep(testdata['sleep_time'])
-	testpage.contact_us_name("ivan")
-	testpage.contact_us_email("test@mail.ru")
-	testpage.contact_us_content("Hello World")
-	testpage.click_contact_us()
-	time.sleep(testdata['sleep_time'])
-	assert testpage.alert() == 'Form successfully submitted'
+	assert testpage.get_alert_text() == 'Form successfully submitted'
+
+def test_step5(required_id, token):
+	logging.info("Тест 5 запущен")
+	assert required_id in check_id(token)
+

@@ -1,17 +1,20 @@
+import logging
+
 import pytest
+import requests
 import yaml
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-
+from email_report import send_email
 
 with open("testdata.yaml") as f:
-	testdata = yaml.safe_load(f)
+	test_data = yaml.safe_load(f)
 
 @pytest.fixture(scope='session')
 def browser():
-    browser = testdata["browser"]
+    browser = test_data["browser"]
     if browser == 'firefox':
         service = Service(executable_path=GeckoDriverManager().install())
         options = webdriver.FirefoxOptions()
@@ -22,46 +25,33 @@ def browser():
         driver = webdriver.Chrome(service=service, options=options)
     yield driver
     driver.quit()
+    send_email()
 
 
-# @pytest.fixture()
-# def log_xpath():
-# 	return """//*[@id="login"]/div[1]/label/input"""
-#
-# @pytest.fixture()
-# def pass_xpath():
-# 	return """//*[@id="login"]/div[2]/label/input"""
-#
-# @pytest.fixture()
-# def btn_xpath():
-# 	return """//*[@id="login"]/div[3]/button"""
-#
-# @pytest.fixture()
-# def result_xpath():
-# 	return """//*[@id="app"]/main/div/div/div[2]/h2"""
-#
-# @pytest.fixture()
-# def result_login():
-# 	return """//*[@id="app"]/main/div/div[1]/h1"""
-#
-# @pytest.fixture()
-# def btn_new_post():
-# 	return """//*[@id="create-btn"]"""
-#
-# @pytest.fixture()
-# def title():
-# 	return """//*[@id="create-item"]/div/div/div[1]/div/label/input"""
-#
-# @pytest.fixture()
-# def btn_save():
-# 	return """//*[@id="create-item"]/div/div/div[7]/div/button/span"""
-#
-# @pytest.fixture()
-# def result_post():
-# 	return """//*[@id="app"]/main/div/div[1]/h1"""
-#
-# @pytest.fixture()
-# def site():
-# 	my_site = Site(testdata["address"])
-# 	yield my_site
-# 	my_site.close()
+@pytest.fixture
+def token():
+    try:
+        response = requests.post(url=test_data['url_post'], data={"username": test_data['login'], "password":
+            test_data['password']})
+        if response.status_code == 200:
+            return response.json()["token"]
+        else:
+            logging.error(f"Ошибка входа в систему. Код состояния: {response.status_code}")
+            return None
+    except:
+        logging.exception(f"Исключение при входе в систему")
+        return None
+
+@pytest.fixture
+def required_id(token):
+    try:
+        res_get = requests.get(url="https://test-stand.gb.ru/api/posts", headers={"X-Auth-Token": token}, params={"owner": "notMe"})
+        if res_get.status_code == 200:
+            return res_get.json()["data"][0]['id']
+        else:
+            logging.error(f"Ошибка запроса ID. Код состояния: {res_get.status_code}")
+            return None
+    except:
+        logging.exception(f"Исключение при выполнении запроса")
+        return None
+

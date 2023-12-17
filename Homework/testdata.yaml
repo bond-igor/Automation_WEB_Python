@@ -1,8 +1,15 @@
 address: https://test-stand.gb.ru/
 browser: chrome
 sleep_time: 2
-driver_path_chrom: C:/chromedriver.exe
-driver_path_firefox: Homework/geckodriver.exe
 login: "mick"
 password: "2ea7d215f8"
-title: TEST
+title_name: Hello
+description_name: world
+content_name: Hello world!
+your_name: Vasya
+your_email: Vasya@gmail.com
+your_content: Hello world!
+login_1: mick
+password_1: 2ea7d215f8
+url_post: "https://test-stand.gb.ru/gateway/login"
+url_get: "https://test-stand.gb.ru/api/posts"
